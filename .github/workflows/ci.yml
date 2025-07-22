@@ -1,17 +1,22 @@
-name: CI  # name of the workflow
+name: CI  
 
 on:
   push:
-    branches: [main]   # push to main branch
+    branches: [main]   
   pull_request:
-    branches: [main]   # opens a PR to main
-
+    branches: [main]   
 jobs:
   test-fastqc-pipeline:
-    runs-on: ubuntu-latest   # Linux VM
+    runs-on: ubuntu-latest   
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3   # get code from GitHub
+        uses: actions/checkout@v3   
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+        python-version: '3.11'  
+      
 
       - name: Set up Conda
         uses: conda-incubator/setup-miniconda@v2
@@ -23,7 +28,7 @@ jobs:
         run: conda install -c bioconda snakemake
 
       - name: Run pipeline
-        run: snakemake --cores 1   # run Snakefile
+        run: snakemake --cores 1   
 
       - name: Upload FastQC Report
         uses: actions/upload-artifact@v4
