@@ -24,6 +24,7 @@ jobs:
         with:
           environment-file: envs/fastqc.yaml
           activate-environment: fastqc-env
+          auto-activate-base: false
 
       - name: Run pipeline
         shell: bash -l {0} 
