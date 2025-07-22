@@ -1,0 +1,6 @@
+name: fastqc-env
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - fastqc
