@@ -26,6 +26,7 @@ jobs:
           activate-environment: fastqc-env
 
       - name: Run pipeline
+        shell: bash -l {0} 
         run: snakemake --cores 1
 
       - name: Upload FastQC Report
