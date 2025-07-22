@@ -2,5 +2,9 @@ name: fastqc-env
 channels:
   - bioconda
   - conda-forge
+  - defaults
 dependencies:
+  - python=3.10  
+  - snakemake=7.9.0
   - fastqc
+  
